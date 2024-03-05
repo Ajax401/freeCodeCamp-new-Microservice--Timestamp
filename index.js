@@ -29,15 +29,8 @@ app.get("/api/:date?",(req,res)=>{
   let unixDate;
   let currentDate = req.params.date;
   let parser = new Date(currentDate);
-  console.log(parser)
-  let reger = /^\d+$/.test(currentDate);
-  console.log(req.params)
    
-  if(reger){
-    parameter = new Date(parseInt(currentDate)).toUTCString();
-    unixDate = Date.parse(parameter)
-    res.json({"unix": unixDate, "utc": parameter})
-  }else if(!req.params.date){
+  if(!req.params.date){
     parameter = new Date().toUTCString();
     unixDate = Date.parse(parameter)
     res.json({"unix": unixDate, "utc": parameter})
